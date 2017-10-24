@@ -1,0 +1,18 @@
+{
+  "name": "gcs-premature-eos-error",
+  "version": "1.0.0",
+  "description": "Reproducible test case for premature stream causing validation errors on GCS",
+  "main": "test.js",
+  "scripts": {
+    "start": "node test.js",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^1.4.0",
+    "brake": "^1.0.1",
+    "hard-rejection": "^1.0.0"
+  }
+}
