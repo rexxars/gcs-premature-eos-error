@@ -16,4 +16,12 @@ const targetStream = fs.createWriteStream(outputFile)
 const sourceStream = file.createReadStream()
 
 sourceStream.pipe(brake(10)).pipe(targetStream)
-sourceStream.once('readable', () => setImmediate(() => targetStream.end()))
+sourceStream.once('readable', scheduleTargetStreamEnd)
+
+function scheduleTargetStreamEnd() {
+  setImmediate(() => {
+    targetStream.end()
+    console.log('Target stream ended')
+    console.log('Waiting for timeout/error from GCS (approx. 60s)')
+  })
+}
